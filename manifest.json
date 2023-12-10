@@ -2,15 +2,15 @@
   "manifest_version": 2,
   "name": "MotmaenBash | مطمئن باش",
   "description": "مطمئن باش | بررسی اصلالت درگاه‌های پرداخت ایرانی",
-  "version": "1.0.2",
+  "version": "1.1.0",
   "author": "Milad Nouri",
-  "homepage_url": "https://motmaenbash.tookan.tech",
+  "homepage_url": "https://motmaenbash.milad.nu",
   "background":{
       "scripts":["assets/js/background.js"]
   },
   "content_scripts": [
    {
-     "matches": ["https://*.shaparak.ir/*", "https://*.cbinasim.ir/*"],
+     "matches": ["https://*.shaparak.ir/*"],
      "exclude_globs": ["*://www.shaparak.ir/*", "*://shaparak.ir/*"],
      "css": ["assets/css/payment-gateway-verify.css"],
      "js": ["assets/js/content-script.js"]
