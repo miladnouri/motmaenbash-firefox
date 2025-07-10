@@ -4,7 +4,7 @@
   "description": "مطمئن باش | بررسی اصلالت درگاه‌های پرداخت ایرانی",
   "version": "2.0.0",
   "author": "Milad Nouri",
-  "homepage_url": "https://motmaenbash.milad.nu",
+  "homepage_url": "https://motmaenbash.ir/",
   "background":{
       "scripts":["assets/js/background.js"]
   },
