@@ -2,7 +2,7 @@
   "manifest_version": 2,
   "name": "MotmaenBash | مطمئن باش",
   "description": "مطمئن باش | بررسی اصلالت درگاه‌های پرداخت ایرانی",
-  "version": "1.1.0",
+  "version": "2.0.0",
   "author": "Milad Nouri",
   "homepage_url": "https://motmaenbash.milad.nu",
   "background":{
