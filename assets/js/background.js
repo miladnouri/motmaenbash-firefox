@@ -23,3 +23,11 @@ function checkForValidUrl(tabId, changeInfo, tab) {
     }
   }
 }
+
+// open Web Site Motmaenbash After Install 
+browser.runtime.onInstalled.addListener(() => {
+  browser.tabs.create({
+    url: "https://motmaenbash.ir/"
+  });
+});
+;
