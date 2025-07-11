@@ -27,8 +27,11 @@
           "128": "assets/images/icon_128.png" },
 
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage",
+    "alarms"
   ],
+  "host_permissions": ["https://raw.githubusercontent.com/*"],
 
   "web_accessible_resources": ["assets/images/sign.png"]
 
