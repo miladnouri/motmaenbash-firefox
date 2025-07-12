@@ -179,32 +179,6 @@ DataManager.prototype.normalizeUrl = function (url) {
 
 // Check URL security against the database
 DataManager.prototype.checkUrlSecurity = async function (url) {
-  const knownTestUrl = 'https://motmaenbash.ir/app_test.html';
-const knownTestHash = 'a81f5ae039854162df1235e8aa133c3cbdd490575c0f99e697577e5cb81fcba3';
-
-if (url.toLowerCase() === knownTestUrl.toLowerCase()) {
-  const directTestResult = await this.db.checkUrlHash(knownTestHash);
-
-  if (directTestResult) {
-    return {
-      secure: true,
-      type: 0,
-      level: 0,
-      match: 0,
-      test: true
-    };
-  } else {
-    return {
-      secure: false,
-      type: 2,
-      level: 3,
-      match: 2,
-      test: true
-    };
-  }
-}
-
-
 
   try {
     if (!this.initialized) await this.init();
