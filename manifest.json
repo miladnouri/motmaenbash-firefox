@@ -1,35 +1,56 @@
 {
   "manifest_version": 2,
   "name": "MotmaenBash | مطمئن باش",
-  "description": "مطمئن باش | بررسی اصلالت درگاه‌های پرداخت ایرانی",
-  "version": "1.1.0",
+  "version": "2.0.0",
+  "description": "مطمئن باش | بررسی اصالت درگاه‌های پرداخت ایرانی",
   "author": "Milad Nouri",
-  "homepage_url": "https://motmaenbash.milad.nu",
-  "background":{
-      "scripts":["assets/js/background.js"]
+  "homepage_url": "https://motmaenbash.ir/",
+  "background": {
+    "scripts": [
+      "assets/js/utils.js",
+      "assets/js/database.js",
+      "assets/js/data-manager.js",
+      "assets/js/background-handler.js",
+      "assets/js/background.js"
+    ],
+    "persistent": false
+  },
+  "icons": {
+    "16": "assets/images/icon_16.png",
+    "48": "assets/images/icon_48.png",
+    "128": "assets/images/icon_128.png"
+  },
+  "browser_action": {
+    "default_icon": "assets/images/icon_128.png",
+    "default_title": "MotmaenBash",
+    "default_popup": "popup.html"
   },
   "content_scripts": [
-   {
-     "matches": ["https://*.shaparak.ir/*"],
-     "exclude_globs": ["*://www.shaparak.ir/*", "*://shaparak.ir/*"],
-     "css": ["assets/css/payment-gateway-verify.css"],
-     "js": ["assets/js/content-script.js"]
-   }
+    {
+      "matches": [
+        "https://*.shaparak.ir/*"
+      ],
+      "exclude_globs": [
+        "*://www.shaparak.ir/*",
+        "*://shaparak.ir/*"
+      ],
+      "css": [
+        "assets/css/payment-gateway-verify.css"
+      ],
+      "js": [
+        "assets/js/content-script.js"
+      ]
+    }
   ],
-  "page_action": {
-   "default_icon": "assets/images/icon_128.png",
-   "default_title": "MotmaenBash",
-   "default_popup": "popup.html"
-  },
-
-  "icons": { "16": "assets/images/icon_16.png",
-           "48": "assets/images/icon_48.png",
-          "128": "assets/images/icon_128.png" },
-
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage",
+    "alarms",
+    "https://raw.githubusercontent.com/"
   ],
-
-  "web_accessible_resources": ["assets/images/sign.png"]
-
+  "web_accessible_resources": [
+    "assets/images/sign.png",
+    "assets/images/icon_danger.png",
+    "assets/images/icon_ok.png"
+  ]
 }
