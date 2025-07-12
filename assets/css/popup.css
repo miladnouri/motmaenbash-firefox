@@ -7,6 +7,7 @@
   font-display: swap;
 }
 
+/* Base styles */
 body {
   background: #fff;
   font-family: "Vazirmatn", sans-serif;
@@ -17,16 +18,19 @@ body {
   direction: rtl;
 }
 
+/* Layout */
 .container {
   text-align: center;
 }
 
+/* Logo */
 .status-icon {
   display: block;
   margin: 20px auto 10px;
   max-width: 72px;
 }
 
+/* Title */
 .title {
   font-size: 1.4rem;
   font-weight: 700;
@@ -34,24 +38,35 @@ body {
   color: #1565c0;
 }
 
-.status_title_ok, .status_title_nok {
+/* Status Messages */
+.status_title_ok,
+.status_title_nok,
+.status_title_danger {
   margin-bottom: 16px;
   text-align: center;
 }
 
-.status_title_ok{
+.status_title_ok {
   color: #26bfa6;
   font-size: 1.2rem;
   font-weight: 600;
 }
 
-.status_title_nok{
+.status_title_nok {
   color: #f44336;
   font-size: 0.70rem;
   font-weight: 600;
   line-height: 28px;
 }
 
+.status_title_danger {
+  color: #ff3d00;
+  font-size: 1.1rem;
+  font-weight: 700;
+  line-height: 28px;
+}
+
+/* Button Groups */
 .button-group {
   display: flex;
   justify-content: space-between;
@@ -63,7 +78,9 @@ body {
   margin-top: 12px;
 }
 
+/* Buttons */
 .modern-button {
+  font-family: 'Vazirmatn';
   flex: 1;
   background-color: #1565c0;
   color: white;
@@ -81,6 +98,7 @@ body {
   background-color: #0d47a1;
 }
 
+/* Footer */
 .footer {
   display: flex;
   justify-content: space-between;
@@ -95,10 +113,37 @@ body {
   text-decoration: none;
 }
 
+/* Alignments */
 .right {
   text-align: right;
 }
 
 .left {
   text-align: left;
+}
+
+/* Security details styling */
+#security_details {
+  background-color: #fff8e1;
+  border-radius: 4px;
+  padding: 8px 12px;
+  margin-bottom: 16px;
+  border: 1px solid #ffe082;
+}
+
+.security_detail {
+  margin: 4px 0;
+  font-size: 0.8rem;
+  display: flex;
+  justify-content: space-between;
+}
+
+.detail_label {
+  font-weight: 600;
+  color: #616161;
+}
+
+.detail_value {
+  font-weight: 500;
+  color: #ff6f00;
 }

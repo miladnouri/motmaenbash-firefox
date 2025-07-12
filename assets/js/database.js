@@ -21,7 +21,6 @@ class Database {
       request.onupgradeneeded = (event) => {
         const db = event.target.result;
 
-        // Create stores for domain hashes and full URL hashes
         if (!db.objectStoreNames.contains('domainHashes')) {
           const domainStore = db.createObjectStore('domainHashes', { keyPath: 'hash' });
           domainStore.createIndex('type', 'type', { unique: false });
@@ -34,7 +33,6 @@ class Database {
           urlStore.createIndex('level', 'level', { unique: false });
         }
 
-        // Store for metadata like last update time
         if (!db.objectStoreNames.contains('metadata')) {
           db.createObjectStore('metadata', { keyPath: 'key' });
         }
@@ -48,7 +46,6 @@ class Database {
     });
   }
 
-  // Clear all data from the database
   async clearAll() {
     if (!this.initialized) await this.init();
 
@@ -58,7 +55,6 @@ class Database {
     ]);
   }
 
-  // Clear a specific object store
   async clearStore(storeName) {
     return new Promise((resolve, reject) => {
       const transaction = this.db.transaction([storeName], 'readwrite');
@@ -70,7 +66,6 @@ class Database {
     });
   }
 
-  // Store hash data in the appropriate store based on match type
   async storeHash(hash, type, level, match) {
     if (!this.initialized) await this.init();
 
@@ -92,11 +87,8 @@ class Database {
     });
   }
 
-  // Check if a domain hash exists in the database
   async checkDomainHash(hash) {
     if (!this.initialized) await this.init();
-
-   
 
     const transaction = this.db.transaction(['domainHashes'], 'readonly');
     const store = transaction.objectStore('domainHashes');
@@ -104,7 +96,6 @@ class Database {
 
     return new Promise((resolve, reject) => {
       request.onsuccess = () => {
-        
         resolve(request.result);
       };
       request.onerror = (event) => {
@@ -114,10 +105,8 @@ class Database {
     });
   }
 
-  // Check if a hash exists in the URL hashes store
   async checkUrlHash(hash) {
     if (!this.initialized) await this.init();
-
 
     return new Promise((resolve, reject) => {
       const transaction = this.db.transaction(['urlHashes'], 'readonly');
@@ -135,7 +124,6 @@ class Database {
     });
   }
 
-  // Store metadata like last update time
   async storeMetadata(key, value) {
     if (!this.initialized) await this.init();
 
@@ -155,7 +143,6 @@ class Database {
     });
   }
 
-  // Get metadata value by key
   async getMetadata(key) {
     if (!this.initialized) await this.init();
 
@@ -172,5 +159,3 @@ class Database {
     });
   }
 }
-
-export default Database;
