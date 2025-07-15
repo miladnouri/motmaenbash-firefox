@@ -1,35 +1,82 @@
 {
-  "manifest_version": 2,
-  "name": "MotmaenBash | مطمئن باش",
-  "description": "مطمئن باش | بررسی اصلالت درگاه‌های پرداخت ایرانی",
-  "version": "1.1.0",
-  "author": "Milad Nouri",
-  "homepage_url": "https://motmaenbash.milad.nu",
-  "background":{
-      "scripts":["assets/js/background.js"]
-  },
-  "content_scripts": [
-   {
-     "matches": ["https://*.shaparak.ir/*"],
-     "exclude_globs": ["*://www.shaparak.ir/*", "*://shaparak.ir/*"],
-     "css": ["assets/css/payment-gateway-verify.css"],
-     "js": ["assets/js/content-script.js"]
-   }
-  ],
-  "page_action": {
-   "default_icon": "assets/images/icon_128.png",
-   "default_title": "MotmaenBash",
-   "default_popup": "popup.html"
-  },
-
-  "icons": { "16": "assets/images/icon_16.png",
-           "48": "assets/images/icon_48.png",
-          "128": "assets/images/icon_128.png" },
-
+  "manifest_version": 3,
+  "name": "MotmaenBash - Secure Payment Gateway Validator",
+  "short_name": "MotmaenBash",
+  "version": "2.0.0",
+  "description": "Security-enhanced Firefox extension to verify Iranian payment gateways and protect against phishing attacks",
+  "homepage_url": "https://motmaenbash.ir",
+  "author": "محمدحسین نوروزی (Mohammad Hossein Norouzi)",
+  
   "permissions": [
-    "tabs"
+    "tabs",
+    "storage"
   ],
-
-  "web_accessible_resources": ["assets/images/sign.png"]
-
+  
+  "host_permissions": [
+    "https://*.shaparak.ir/*",
+    "https://*.sep.ir/*",
+    "https://*.fanava.ir/*",
+    "https://*.parsian.com/*",
+    "https://*.mellat.ir/*"
+  ],
+  
+  "background": {
+    "scripts": ["assets/js/secure-background.js"],
+    "persistent": false
+  },
+  
+  "content_scripts": [
+    {
+      "matches": [
+        "https://*.shaparak.ir/*",
+        "https://*.sep.ir/*",
+        "https://*.fanava.ir/*",
+        "https://*.parsian.com/*",
+        "https://*.mellat.ir/*"
+      ],
+      "js": ["assets/js/secure-content-script.js"],
+      "css": ["assets/css/secure-styles.css"],
+      "run_at": "document_end"
+    }
+  ],
+  
+  "action": {
+    "default_popup": "popup.html",
+    "default_title": "MotmaenBash Security Status",
+    "default_icon": {
+      "16": "assets/images/icon_16.png",
+      "48": "assets/images/icon_48.png",
+      "128": "assets/images/icon_128.png"
+    }
+  },
+  
+  "icons": {
+    "16": "assets/images/icon_16.png",
+    "48": "assets/images/icon_48.png",
+    "128": "assets/images/icon_128.png"
+  },
+  
+  "web_accessible_resources": [
+    {
+      "resources": ["assets/images/sign.png"],
+      "matches": [
+        "https://*.shaparak.ir/*",
+        "https://*.sep.ir/*",
+        "https://*.fanava.ir/*",
+        "https://*.parsian.com/*",
+        "https://*.mellat.ir/*"
+      ]
+    }
+  ],
+  
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'; style-src 'self' 'unsafe-inline';"
+  },
+  
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "motmaenbash-secure@mohammadhndev.github.io",
+      "strict_min_version": "91.0"
+    }
+  }
 }

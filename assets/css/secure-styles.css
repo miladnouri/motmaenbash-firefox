@@ -1,0 +1,285 @@
+/**
+ * Secure styles for MotmaenBash Firefox Extension
+ * Security-focused CSS with XSS prevention
+ * 
+ * @version 2.0.0
+ * @author محمدحسین نوروزی (Mohammad Hossein Norouzi)
+ */
+
+/* Security indicator styles */
+.motmaenbash-indicator {
+    position: fixed !important;
+    top: 10px !important;
+    right: 10px !important;
+    background: #28a745 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-family: Arial, sans-serif !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 5px !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.1) !important;
+    border: 1px solid rgba(255,255,255,0.2) !important;
+    max-width: 300px !important;
+    direction: rtl !important;
+}
+
+.motmaenbash-indicator.warning {
+    background: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.motmaenbash-indicator.danger {
+    background: #dc3545 !important;
+    color: white !important;
+}
+
+.motmaenbash-icon {
+    font-size: 14px !important;
+    flex-shrink: 0 !important;
+}
+
+.motmaenbash-message {
+    font-weight: 500 !important;
+    white-space: nowrap !important;
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+}
+
+/* Security warning styles */
+.motmaenbash-warning {
+    position: fixed !important;
+    top: 50% !important;
+    left: 50% !important;
+    transform: translate(-50%, -50%) !important;
+    background: #dc3545 !important;
+    color: white !important;
+    padding: 20px !important;
+    border-radius: 8px !important;
+    font-size: 14px !important;
+    font-family: Arial, sans-serif !important;
+    z-index: 2147483647 !important;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3) !important;
+    max-width: 400px !important;
+    text-align: center !important;
+    direction: rtl !important;
+}
+
+.motmaenbash-warning::before {
+    content: "⚠️" !important;
+    font-size: 24px !important;
+    display: block !important;
+    margin-bottom: 10px !important;
+}
+
+/* Security overlay styles */
+.motmaenbash-overlay {
+    position: fixed !important;
+    top: 0 !important;
+    left: 0 !important;
+    width: 100% !important;
+    height: 100% !important;
+    background: rgba(0,0,0,0.8) !important;
+    z-index: 2147483646 !important;
+    display: flex !important;
+    align-items: center !important;
+    justify-content: center !important;
+}
+
+.motmaenbash-modal {
+    background: white !important;
+    padding: 30px !important;
+    border-radius: 12px !important;
+    max-width: 500px !important;
+    width: 90% !important;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3) !important;
+    text-align: center !important;
+    direction: rtl !important;
+}
+
+.motmaenbash-modal h3 {
+    color: #dc3545 !important;
+    margin-bottom: 20px !important;
+    font-size: 18px !important;
+    font-weight: bold !important;
+}
+
+.motmaenbash-modal p {
+    color: #333 !important;
+    margin-bottom: 20px !important;
+    line-height: 1.5 !important;
+}
+
+.motmaenbash-modal button {
+    background: #007bff !important;
+    color: white !important;
+    border: none !important;
+    padding: 10px 20px !important;
+    border-radius: 5px !important;
+    font-size: 14px !important;
+    cursor: pointer !important;
+    margin: 0 5px !important;
+}
+
+.motmaenbash-modal button.danger {
+    background: #dc3545 !important;
+}
+
+.motmaenbash-modal button:hover {
+    opacity: 0.9 !important;
+}
+
+/* Secure form styles */
+.motmaenbash-secure-form {
+    border: 2px solid #28a745 !important;
+    border-radius: 8px !important;
+    padding: 15px !important;
+    margin: 10px 0 !important;
+    position: relative !important;
+}
+
+.motmaenbash-secure-form::before {
+    content: "🔒 فرم محافظت شده" !important;
+    position: absolute !important;
+    top: -10px !important;
+    right: 10px !important;
+    background: #28a745 !important;
+    color: white !important;
+    padding: 2px 8px !important;
+    font-size: 12px !important;
+    border-radius: 4px !important;
+}
+
+/* Security badge styles */
+.motmaenbash-security-badge {
+    position: fixed !important;
+    bottom: 20px !important;
+    right: 20px !important;
+    background: #007bff !important;
+    color: white !important;
+    padding: 10px 15px !important;
+    border-radius: 25px !important;
+    font-size: 12px !important;
+    font-family: Arial, sans-serif !important;
+    z-index: 2147483647 !important;
+    display: flex !important;
+    align-items: center !important;
+    gap: 8px !important;
+    box-shadow: 0 2px 15px rgba(0,0,0,0.2) !important;
+    cursor: pointer !important;
+    transition: all 0.3s ease !important;
+}
+
+.motmaenbash-security-badge:hover {
+    background: #0056b3 !important;
+    transform: translateY(-2px) !important;
+}
+
+.motmaenbash-security-badge.verified {
+    background: #28a745 !important;
+}
+
+.motmaenbash-security-badge.warning {
+    background: #ffc107 !important;
+    color: #212529 !important;
+}
+
+.motmaenbash-security-badge.danger {
+    background: #dc3545 !important;
+}
+
+/* Tooltip styles */
+.motmaenbash-tooltip {
+    position: absolute !important;
+    background: #333 !important;
+    color: white !important;
+    padding: 8px 12px !important;
+    border-radius: 4px !important;
+    font-size: 12px !important;
+    font-family: Arial, sans-serif !important;
+    z-index: 2147483647 !important;
+    white-space: nowrap !important;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.2) !important;
+    direction: rtl !important;
+}
+
+.motmaenbash-tooltip::after {
+    content: "" !important;
+    position: absolute !important;
+    top: 100% !important;
+    left: 50% !important;
+    margin-left: -5px !important;
+    border-width: 5px !important;
+    border-style: solid !important;
+    border-color: #333 transparent transparent transparent !important;
+}
+
+/* Loading spinner styles */
+.motmaenbash-spinner {
+    border: 2px solid #f3f3f3 !important;
+    border-top: 2px solid #007bff !important;
+    border-radius: 50% !important;
+    width: 20px !important;
+    height: 20px !important;
+    animation: motmaenbash-spin 1s linear infinite !important;
+    display: inline-block !important;
+}
+
+@keyframes motmaenbash-spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* Accessibility improvements */
+.motmaenbash-sr-only {
+    position: absolute !important;
+    width: 1px !important;
+    height: 1px !important;
+    padding: 0 !important;
+    margin: -1px !important;
+    overflow: hidden !important;
+    clip: rect(0, 0, 0, 0) !important;
+    white-space: nowrap !important;
+    border: 0 !important;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .motmaenbash-indicator {
+        border: 2px solid currentColor !important;
+    }
+    
+    .motmaenbash-warning {
+        border: 2px solid currentColor !important;
+    }
+}
+
+/* Reduced motion support */
+@media (prefers-reduced-motion: reduce) {
+    .motmaenbash-security-badge {
+        transition: none !important;
+    }
+    
+    .motmaenbash-spinner {
+        animation: none !important;
+    }
+}
+
+/* Dark mode support */
+@media (prefers-color-scheme: dark) {
+    .motmaenbash-modal {
+        background: #2d3748 !important;
+        color: white !important;
+    }
+    
+    .motmaenbash-modal h3 {
+        color: #fc8181 !important;
+    }
+    
+    .motmaenbash-modal p {
+        color: #e2e8f0 !important;
+    }
+}
